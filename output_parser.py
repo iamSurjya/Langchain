@@ -48,7 +48,7 @@ text: {text}
 from langchain.prompts import ChatPromptTemplate
 from langchain_mistralai import ChatMistralAI
 import os
-os.environ["MISTRAL_API_KEY"] = "QyLLL2hDbbVX6wDQMgu3UzgykXqKtwdS"
+os.environ["MISTRAL_API_KEY"] = ""
 
 model="mistral-small-latest" #"mistral-large-latest"
 llm = ChatMistralAI(
@@ -58,12 +58,12 @@ llm = ChatMistralAI(
 )
 
 # without Output parser
-prompt_template=ChatPromptTemplate.from_template(review_template)
-messages=prompt_template.format_messages(text=customer_review)
+# prompt_template=ChatPromptTemplate.from_template(review_template)
+# messages=prompt_template.format_messages(text=customer_review)
 
-response=llm.invoke(messages)
-print(type(response.content)) # this return strings
-print(response.content)
+# response=llm.invoke(messages)
+# print(type(response.content)) # this return strings
+# print(response.content)
 
 # with Ouput parser
 from langchain.output_parsers import ResponseSchema
